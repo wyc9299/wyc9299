@@ -55,7 +55,7 @@
                     }
                     else{
                         if(currency=="USD"){
-                            document.getElementById("result").innerHTML = "台幣"+amount+"元可換算成美金"+(amount*xmlDoc.getElementsByTagName("USD")[0].childNodes[1].nodeValue).toFixed(2)+"元";\
+                            document.getElementById("result").innerHTML = "台幣"+amount+"元可換算成美金"+(amount*xmlDoc.getElementsByTagName("USD")[0].childNodes[1].nodeValue).toFixed(2)+"元";
                         }
                         else if(currency=="EUR"){
                             document.getElementById("result").innerHTML = "台幣"+amount+"元可換算成歐元"+(amount*xmlDoc.getElementsByTagName("EUR")[0].childNodes[1].nodeValue).toFixed(2)+"元";
