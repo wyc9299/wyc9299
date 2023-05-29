@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--(2) 創建一個名稱為 "rate.xml" 的檔案並以 XML 格式儲存匯率-->
 <USD>
     <buy>29.65</buy>
     <sell>30.96</sell>
