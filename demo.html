@@ -69,12 +69,7 @@
                         else if(currency=="AUD"){
                             document.getElementById("result").innerHTML = "台幣"+amount+"元可換算成澳幣"+(amount*xmlDoc.getElementsByTagName("AUD")[0].childNodes[1].nodeValue).toFixed(2)+"元";
                         }
-                        else{
-                            alert("請選擇貨幣");
-                            document.location.reload();
-                        }
-                    }
-                    
+                    }   
                 }
             </script>
         </div>
