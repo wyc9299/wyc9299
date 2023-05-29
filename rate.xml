@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--(2) 創建一個名稱為 "rate.xml" 的檔案並以 XML 格式儲存匯率-->
+<USD>
+    <buy>29.65</buy>
+    <sell>30.96</sell>
+</USD>
+<EUR>
+    <buy>32.12</buy>
+    <sell>33.46</sell>
+</EUR>
+<AUD>
+    <buy>19.67</buy>
+    <sell>20.45</sell>
+</AUD>
+<JPY>
+    <buy>0.2091</buy>
+    <sell>0.2219</sell>
+</JPY>
+<KRW>
+    <buy>0.02145</buy>
+    <sell>0.02535</sell>
+</KRW>

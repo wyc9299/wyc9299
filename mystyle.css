@@ -1,0 +1,19 @@
+p{
+    color: red;
+}
+::selection{
+    background: pink;
+    color:blue;
+}
+h1{
+    color:aqua;
+}
+h1:hover{
+    color:blue;
+}
+button{
+    background: black;
+    color: white;
+    border: 1.5px solid white;
+    border-radius: 5px;
+}

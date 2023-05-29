@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<head>
+    <title>WP Final</title>
+    <link rel="stylesheet" href="mystyle.css">
+</head>
+<body>
+    <div>
+        <h1>匯率轉換工具</h1>
+        <div>
+            <label for="currency">請選擇貨幣</label>
+            <select id="currency">
+                <option value="USD">美金</option>
+                <option value="EUR">歐元</option>
+                <option value="JPY">日幣</option>
+                <option value="KRW">韓元</option>
+                <option value="AUD">澳幣</option>
+            </select>
+        </div>
+        <div>
+            <label for="amount">請輸入金額</label>
+            <input type="text" id="amount">
+            <button id="btn" onclick="loadDoc()">查詢</button>
+            <br>
+            <!--(4) 具備重新開始(reset)功能的按鈕，讓使用者可以進行全新一輪的計算-->
+            <button id="btn" onclick="document.location.reload()">reset</button>
+            <br>
+            <p id="result">result</p>
+            <script>
+                function loadDoc(){
+                    const xhttp = new XMLHttpRequest();
+
+                    xhttp.onload = function() {
+                        exchange(this);
+                    }
+
+                    xhttp.open("GET", "rate.xml");
+                    xhttp.send();
+
+                    exchange(xhttp);
+                }
+                function exchange(xml){
+                    const xmlDoc = xml.responseXML;
+                    var currency = document.getElementById("currency").value;
+                    var amount = document.getElementById("amount").value;
+                    var result;
+                    //(5) 具備輸入檢查功能，若使用者輸入的內容非有效數值，按下執行計算的按鈕後會跳出警告，並觸發重新開始(reset)功能
+                    if(amount ==0){
+                        alert("請輸入金額");
+                        return;
+                    }
+                    else if(amount<0){
+                        alert("請輸入正確金額");
+                        document.location.reload();
+                    }
+                    else if(amount%1!=0){
+                        alert("請輸入正確金額");
+                        document.location.reload();
+                    }
+                    else{
+                        if(currency == "USD"){
+                            result = amount * xmlDoc.getElementsByTagName("USD")[0].childNodes[1].nodeValue;
+                        }
+                        else if(currency == "EUR"){
+                            result = amount * xmlDoc.getElementsByTagName("EUR")[0].childNodes[1].nodeValue;
+                        }
+                        else if(currency == "JPY"){
+                            result = amount * xmlDoc.getElementsByTagName("JPY")[0].childNodes[1].nodeValue;
+                        }
+                        else if(currency == "KRW"){
+                            result = amount * xmlDoc.getElementsByTagName("KRW")[0].childNodes[1].nodeValue;
+                        }
+                        else if(currency == "AUD"){
+                            result = amount * xmlDoc.getElementsByTagName("AUD")[0].childNodes[1].nodeValue;
+                        }
+                        document.getElementById("result").innerHTML = "result: " + result;
+                    }
+                    
+                }
+            </script>
+        </div>
+    </div>
+</body>
+</html>
